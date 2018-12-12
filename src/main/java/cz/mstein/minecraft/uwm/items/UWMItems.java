@@ -3,6 +3,7 @@ package cz.mstein.minecraft.uwm.items;
 import cz.mstein.minecraft.uwm.init.UWMReference;
 import cz.mstein.minecraft.uwm.materials.javium.JaviumDust;
 import cz.mstein.minecraft.uwm.materials.javium.JaviumIngot;
+import cz.mstein.minecraft.uwm.materials.perpium.PerpiumDust;
 import cz.mstein.minecraft.uwm.materials.perpium.PerpiumIngot;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -25,7 +26,7 @@ public class UWMItems {
 		javium_ingot = new JaviumIngot();
 		javium_dust = new JaviumDust();
 		perpium_ingot = new PerpiumIngot();
-		perpium_dust = new PerpiumIngot();
+		perpium_dust = new PerpiumDust();
 	}
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
