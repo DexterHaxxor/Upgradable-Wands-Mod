@@ -3,7 +3,7 @@
   "modid": "uwm",
   "name": "Upgradable Wands Mod",
   "description": "A mod that adds upgradable wands!",
-  "version": "0.1",
+  "version": "0.2",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
