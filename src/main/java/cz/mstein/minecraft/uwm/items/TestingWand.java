@@ -20,6 +20,5 @@ public class TestingWand extends UWMItem {
 			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.PASS;
-		{
 	}
 }
