@@ -17,16 +17,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class UWMItems {
 	
 	// START OF ITEMS HERE //
-	public static Item javium_ingot;
-	public static Item javium_dust;
-	public static Item perpium_ingot;
-	public static Item perpium_dust;
+	public static Item javium_ingot, javium_dust, perpium_ingot, perpium_dust, testing_wand;
 	// END OF ITEMS HERE //
 	public static void init() {
 		javium_ingot = new JaviumIngot();
 		javium_dust = new JaviumDust();
 		perpium_ingot = new PerpiumIngot();
 		perpium_dust = new PerpiumDust();
+		testing_wand = new TestingWand();
 	}
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -34,6 +32,7 @@ public class UWMItems {
 		event.getRegistry().registerAll(javium_dust);
 		event.getRegistry().registerAll(perpium_ingot);
 		event.getRegistry().registerAll(perpium_dust);
+		event.getRegistry().registerAll(testing_wand);
 	}
 	@SubscribeEvent
 	public static void registerRenders(ModelRegistryEvent event) {
@@ -41,6 +40,7 @@ public class UWMItems {
 		registerRender(javium_dust);
 		registerRender(perpium_ingot);
 		registerRender(perpium_dust);
+		registerRender(testing_wand);
 	}
 	private static void registerRender(Item item) {
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation( item.getRegistryName(), "inventory"));
