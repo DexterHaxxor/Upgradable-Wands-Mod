@@ -8,5 +8,6 @@ public class UWMSmelting {
 
 	public static void init() {
 		GameRegistry.addSmelting(UWMItems.javium_dust, new ItemStack(UWMItems.javium_ingot, 1), 1.5f);
+		GameRegistry.addSmelting(UWMItems.perpium_dust, new ItemStack(UWMItems.perpium_ingot, 1), 1.5f);
 	}	
 }
