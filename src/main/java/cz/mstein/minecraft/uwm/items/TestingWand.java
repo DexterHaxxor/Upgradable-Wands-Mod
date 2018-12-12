@@ -1,7 +1,9 @@
 package cz.mstein.minecraft.uwm.items;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -11,9 +13,13 @@ public class TestingWand extends UWMItem {
 		this.maxStackSize = 1;
 		this.setMaxDamage(500);
 	}
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float px, float py, float pz){
-			BlockPos pos = new BlockPos(x,y,z);
+	@Override
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(!world.isRemote) {
 			world.destroyBlock(pos, true);
-		return true;
+			return EnumActionResult.SUCCESS;
+		}
+		return EnumActionResult.PASS;
+		{
 	}
 }
