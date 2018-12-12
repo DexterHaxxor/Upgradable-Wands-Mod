@@ -11,3 +11,5 @@ I plan on adding wands that will be upgradable(hence the name), so that you can 
  - [ ] Create a working wand base
  - [ ] Perpium textures: item, dust, block, ore
  - [ ] Perpium ore
+ 
+**Thank you suppergerrie2!**
