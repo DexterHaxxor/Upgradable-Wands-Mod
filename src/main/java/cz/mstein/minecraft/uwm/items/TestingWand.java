@@ -20,7 +20,7 @@ public class TestingWand extends UWMItem {
 			world.destroyBlock(pos, false);
 			return EnumActionResult.SUCCESS;
 		} else if(world.isRemote && player.isSneaking()) {
-			player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, pos));
+			player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition());
 		}
 		return EnumActionResult.PASS;
 	}
