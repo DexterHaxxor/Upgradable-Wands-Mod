@@ -1,0 +1,16 @@
+[
+{
+  "modid": "uwm",
+  "name": "Upgradable Wands Mod",
+  "description": "A mod that adds upgradable wands!",
+  "version": "0.1",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["R3tromanCZ"],
+  "credits": "Suppergerrie2's tutorial and the internet",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
