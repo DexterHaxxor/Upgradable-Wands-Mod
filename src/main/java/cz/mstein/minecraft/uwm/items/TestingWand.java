@@ -2,6 +2,8 @@ package cz.mstein.minecraft.uwm.items;
 
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -19,9 +21,13 @@ public class TestingWand extends UWMItem {
 		if(!world.isRemote && !player.isSneaking()) {
 			world.destroyBlock(pos, false);
 			return EnumActionResult.SUCCESS;
-		} else if(world.isRemote && player.isSneaking()) {
-			player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition());
 		}
 		return EnumActionResult.PASS;
 	}
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack itemstack = player.getHeldItem(hand);
+        player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition()));
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+    }
 }
