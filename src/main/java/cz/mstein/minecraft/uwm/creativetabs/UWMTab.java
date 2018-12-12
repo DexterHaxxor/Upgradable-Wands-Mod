@@ -13,7 +13,7 @@ public class UWMTab {
 		}
 		@Override
 		public boolean hasSearchBar() {
-			returm true;
+			return true;
 		}
 	});
 }
