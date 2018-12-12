@@ -11,6 +11,9 @@ public class UWMTab {
 		public ItemStack getTabIconItem() {
 			return new ItemStack(UWMItems.javium_dust);
 		}
-		
+		@Override
+		public boolean hasSearchBar() {
+			returm true;
+		}
 	});
 }
