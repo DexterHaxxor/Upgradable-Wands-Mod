@@ -6,5 +6,6 @@ tile.javium_block.name=Javium Block
 item.javium_ingot.name=Javium Ingot
 item.javium_dust.name=Javium Blend
 tile.perpium_block.name=Perpium Block
+tile.perpium_ore.name=Perpium Ore
 item.perpium_ingot.name=Perpium Ingot
 item.perpium_dust.name=Perpium Dust
