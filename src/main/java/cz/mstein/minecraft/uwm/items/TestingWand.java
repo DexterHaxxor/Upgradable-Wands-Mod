@@ -24,10 +24,12 @@ public class TestingWand extends UWMItem {
 		}
 		return EnumActionResult.PASS;
 	}
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
-    {
-        ItemStack itemstack = player.getHeldItem(hand);
-        player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition()));
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemstack = player.getHeldItem(hand);
+        if(world.isRemote) {
+        	player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition()));
+        	return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+        }
+    return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
     }
 }

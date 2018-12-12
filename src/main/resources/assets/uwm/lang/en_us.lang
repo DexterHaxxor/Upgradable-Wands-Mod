@@ -1,7 +1,10 @@
+itemGroup.uwmtab=Upgradable Wands Mod
+
+item.testing_wand.name=Testing Wand
+
 tile.javium_block.name=Javium Block
 item.javium_ingot.name=Javium Ingot
 item.javium_dust.name=Javium Blend
-itemGroup.uwmtab=Upgradable Wands Mod
 tile.perpium_block.name=Perpium Block
 item.perpium_ingot.name=Perpium Ingot
 item.perpium_dust.name=Perpium Dust
