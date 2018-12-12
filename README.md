@@ -6,6 +6,8 @@ This mod's name was changed at day 2 of development from "Weird Materials Mod", 
 
 I plan on adding wands that will be upgradable(hence the name), so that you can craft an item and add it to the wand, for example RF storage or a crafting GUI.
 
+See the [wiki](https://github.com/steinm07/Upgradable-Wands-Mod/wiki)
+
 **WANTED**
 
  - [ ] Create a working wand base

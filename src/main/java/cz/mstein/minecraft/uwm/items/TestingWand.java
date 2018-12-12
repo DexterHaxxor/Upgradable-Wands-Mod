@@ -26,7 +26,7 @@ public class TestingWand extends UWMItem {
 	}
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
-        if(world.isRemote) {
+        if(world.isRemote && player.isSneaking()) {
         	player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition()));
         	return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
         }
