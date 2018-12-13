@@ -19,8 +19,8 @@ public class UpgradableWandsMod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println(UWMReference.MODID + ":preInit");
-		UWMBlocks.init();
 		UWMItems.init();
+		UWMBlocks.init();
 		UWMSmelting.init();
 	}
 	
