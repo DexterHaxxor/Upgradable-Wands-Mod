@@ -1,7 +1,7 @@
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
-@rem  Gradle startup script for Windows
+@rem  Upgradable Wands Mod Gradle startup script for Windows
 @rem
 @rem ##########################################################################
 
