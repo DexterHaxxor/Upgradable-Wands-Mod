@@ -12,6 +12,6 @@ See the [wiki](https://github.com/steinm07/Upgradable-Wands-Mod/wiki)
 
  - [ ] Create a working wand base
  - [ ] Perpium textures: item, dust, block, ore
- - [x] Perpium ore
+ - [ ] Javium crafting recipe 
  
 **Thank you suppergerrie2!**
