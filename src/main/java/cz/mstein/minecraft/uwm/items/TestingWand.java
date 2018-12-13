@@ -15,6 +15,7 @@ public class TestingWand extends UWMItem {
 		super("testing_wand");
 		this.maxStackSize = 1;
 		this.setMaxDamage(500);
+		this.setCreativeTab(null);
 	}
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){

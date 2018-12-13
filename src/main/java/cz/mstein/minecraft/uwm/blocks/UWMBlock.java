@@ -10,5 +10,6 @@ public class UWMBlock extends Block {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.setCreativeTab(UWMTab.tab);
+		this.setHardness(3.0F);
 	}
 }
