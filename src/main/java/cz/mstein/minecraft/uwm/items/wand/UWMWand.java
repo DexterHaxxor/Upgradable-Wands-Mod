@@ -15,7 +15,6 @@ public class UWMWand extends UWMItem {
 	public UWMWand() {
 		super("wand");
 		this.setMaxStackSize(1);
-		this.onU
 	}
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
