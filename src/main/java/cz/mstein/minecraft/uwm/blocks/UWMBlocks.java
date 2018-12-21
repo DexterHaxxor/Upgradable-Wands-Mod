@@ -20,11 +20,13 @@ public class UWMBlocks {
 	public static Block javium_block;
 	public static Block perpium_block;
 	public static Block perpium_ore;
+	public static Block wand_upgrade_station;
 	
 	public static void init() {
 		javium_block = new JaviumBlock();
 		perpium_block = new PerpiumBlock();
 		perpium_ore = new PerpiumOre();
+		wand_upgrade_station = new WandUpgradeStation();
 	}
 	
 	@SubscribeEvent
@@ -32,6 +34,7 @@ public class UWMBlocks {
 		event.getRegistry().registerAll(javium_block);
 		event.getRegistry().registerAll(perpium_block);
 		event.getRegistry().registerAll(perpium_ore);
+		event.getRegistry().registerAll(wand_upgrade_station);
 	}
 	
 	@SubscribeEvent
@@ -39,6 +42,7 @@ public class UWMBlocks {
 		event.getRegistry().registerAll(new ItemBlock(javium_block).setRegistryName(javium_block.getRegistryName()));
 		event.getRegistry().registerAll(new ItemBlock(perpium_block).setRegistryName(perpium_block.getRegistryName()));
 		event.getRegistry().registerAll(new ItemBlock(perpium_ore).setRegistryName(perpium_ore.getRegistryName()));
+		event.getRegistry().registerAll(new ItemBlock(wand_upgrade_station).setRegistryName(wand_upgrade_station.getRegistryName()));
 	}
 	
 	@SubscribeEvent
@@ -46,6 +50,7 @@ public class UWMBlocks {
 		registerRender(Item.getItemFromBlock(javium_block));
 		registerRender(Item.getItemFromBlock(perpium_block));
 		registerRender(Item.getItemFromBlock(perpium_ore));
+		registerRender(Item.getItemFromBlock(wand_upgrade_station));
 	}
 	
 	public static void registerRender(Item item) {
