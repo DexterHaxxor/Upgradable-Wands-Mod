@@ -20,18 +20,6 @@ public class UWMWand extends UWMItem {
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
 		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
-		String selectedString = tag.getString("selected");
-		String mode = tag.getString("mode").toString();
-		WandGadget selected = WandGadget.getByName(selectedString);
-		if(selected == null) {
-			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
-		}
-		selected.exec(world, player, hand, mode);
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
-	}
-	@Override
-	public void onUpdate(ItemStack itemstack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
 		String defaultGadget;
 		if(!tag.hasKey("enabled", Constants.NBT.TAG_COMPOUND)) {
 			NBTTagCompound subTag = new NBTTagCompound();
@@ -48,5 +36,13 @@ public class UWMWand extends UWMItem {
 		if (!tag.hasKey("mode", Constants.NBT.TAG_STRING)) {
 			tag.setString("mode", "");
 		}
+		String selectedString = tag.getString("selected");
+		String mode = tag.getString("mode").toString();
+		WandGadget selected = WandGadget.getByName(selectedString);
+		if(selected == null) {
+			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
+		}
+		selected.exec(world, player, hand, mode);
+        return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 }
