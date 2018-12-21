@@ -33,7 +33,7 @@ public class UWMWand extends UWMItem {
 	public void onUpdate(ItemStack itemstack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
 		String defaultGadget;
-		if(!tag.hasKey("list", Constants.NBT.TAG_COMPOUND)) {
+		if(!tag.hasKey("enabled", Constants.NBT.TAG_COMPOUND)) {
 			NBTTagCompound subTag = new NBTTagCompound();
 			subTag.setString("basic", "");
 			tag.setTag("enabled", subTag);
