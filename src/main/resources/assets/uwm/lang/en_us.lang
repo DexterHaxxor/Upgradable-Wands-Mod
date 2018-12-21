@@ -1,5 +1,7 @@
 itemGroup.uwmtab=Upgradable Wands Mod
 
+key.wand_menu=Wand Menu
+
 item.testing_wand.name=Testing Wand
 
 tile.javium_block.name=Javium Block

@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "uwm:blocks/wand_upgrade_station"
+    }
+}

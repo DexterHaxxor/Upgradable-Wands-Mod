@@ -3,8 +3,11 @@ package cz.mstein.minecraft.uwm.init;
 import cz.mstein.minecraft.uwm.blocks.UWMBlocks;
 import cz.mstein.minecraft.uwm.items.UWMItems;
 import cz.mstein.minecraft.uwm.items.wand.WandGadget;
+import cz.mstein.minecraft.uwm.keybinds.UWMKeyInputHandler;
+import cz.mstein.minecraft.uwm.keybinds.UWMKeybinds;
 import cz.mstein.minecraft.uwm.recipies.UWMSmelting;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -27,6 +30,8 @@ public class UpgradableWandsMod {
 		UWMItems.init();
 		UWMBlocks.init();
 		UWMSmelting.init();
+		UWMKeybinds.register();
+	    MinecraftForge.EVENT_BUS.register(new UWMKeyInputHandler());
 	}
 	
 	@EventHandler
