@@ -2,7 +2,10 @@ package cz.mstein.minecraft.uwm.items.wand;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -34,5 +37,5 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 
 		return REGISTRY.getValue(id);
 	}
-
+	public void exec(World world, EntityPlayer player, EnumHand hand, String mode) {}
 }
