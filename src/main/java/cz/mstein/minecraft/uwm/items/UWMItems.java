@@ -1,6 +1,7 @@
 package cz.mstein.minecraft.uwm.items;
 
 import cz.mstein.minecraft.uwm.init.UWMReference;
+import cz.mstein.minecraft.uwm.items.wand.UWMWand;
 import cz.mstein.minecraft.uwm.materials.javium.JaviumDust;
 import cz.mstein.minecraft.uwm.materials.javium.JaviumIngot;
 import cz.mstein.minecraft.uwm.materials.perpium.PerpiumDust;
@@ -17,7 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class UWMItems {
 	
 	// START OF ITEMS HERE //
-	public static Item javium_ingot, javium_dust, perpium_ingot, perpium_dust, testing_wand;
+	public static Item javium_ingot, javium_dust, perpium_ingot, perpium_dust, testing_wand, wand;
 	// END OF ITEMS HERE //
 	public static void init() {
 		javium_ingot = new JaviumIngot();
@@ -25,6 +26,7 @@ public class UWMItems {
 		perpium_ingot = new PerpiumIngot();
 		perpium_dust = new PerpiumDust();
 		testing_wand = new TestingWand();
+		wand = new UWMWand();
 	}
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -33,6 +35,7 @@ public class UWMItems {
 		event.getRegistry().registerAll(perpium_ingot);
 		event.getRegistry().registerAll(perpium_dust);
 		event.getRegistry().registerAll(testing_wand);
+		event.getRegistry().registerAll(wand);
 	}
 	@SubscribeEvent
 	public static void registerRenders(ModelRegistryEvent event) {
@@ -41,6 +44,7 @@ public class UWMItems {
 		registerRender(perpium_ingot);
 		registerRender(perpium_dust);
 		registerRender(testing_wand);
+		registerRender(wand);
 	}
 	private static void registerRender(Item item) {
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation( item.getRegistryName(), "inventory"));

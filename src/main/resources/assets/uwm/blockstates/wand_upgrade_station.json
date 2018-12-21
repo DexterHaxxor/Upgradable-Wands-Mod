@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "uwm:wand_upgrade_station" }
+        ]
+    }
+}
