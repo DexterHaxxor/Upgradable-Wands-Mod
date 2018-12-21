@@ -46,6 +46,6 @@ public class UWMWand extends UWMItem {
 		}
 		Minecraft.getMinecraft().player.sendMessage(new TextComponentString(selected.toString()));
 		selected.exec(world, player, hand, mode);
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 }
