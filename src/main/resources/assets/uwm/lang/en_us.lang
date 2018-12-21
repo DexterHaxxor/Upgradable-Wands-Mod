@@ -3,6 +3,8 @@ itemGroup.uwmtab=Upgradable Wands Mod
 key.wand_menu=Wand Menu
 
 item.testing_wand.name=Testing Wand
+item.wand.name=Upgradable Wand
+tile.wand_upgrade_station.name=Wand Upgrade Station
 
 tile.javium_block.name=Javium Block
 item.javium_ingot.name=Javium Ingot
