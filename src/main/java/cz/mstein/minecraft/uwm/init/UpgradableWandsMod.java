@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.RegistryBuilder;
 
 @Mod(modid=UWMReference.MODID, name=UWMReference.MODNAME, version=UWMReference.VERSION, acceptedMinecraftVersions=UWMReference.ACCEPTED_MINECRAFT_VERSIONS)
+@Mod.EventBusSubscriber(modid=UWMReference.MODID)
 public class UpgradableWandsMod {
 	
 	@Instance
