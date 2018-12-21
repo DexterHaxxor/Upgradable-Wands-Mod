@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "top": "uwm:blocks/wand_upgrade_station_top",
+        "all": "uwm:blocks/wand_upgrade_station_top",
         "side": "uwm:blocks/wand_upgrade_station_side",
         "bottom": "uwm:blocks/wand_upgrade_station_bottom"
     }
