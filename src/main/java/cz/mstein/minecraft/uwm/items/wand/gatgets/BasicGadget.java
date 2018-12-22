@@ -12,6 +12,6 @@ public class BasicGadget extends WandGadget {
 	}
 	@Override
 	public void exec(World world, EntityPlayer player, EnumHand hand, String mode) {
-		player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition()));
+		 if(world.isRemote) {player.displayGui(new BlockWorkbench.InterfaceCraftingTable(world, player.getPosition()));}
 	}
 }

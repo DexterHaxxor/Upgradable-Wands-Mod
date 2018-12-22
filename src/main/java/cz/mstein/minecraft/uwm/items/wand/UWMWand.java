@@ -1,14 +1,12 @@
 package cz.mstein.minecraft.uwm.items.wand;
 
 import cz.mstein.minecraft.uwm.items.UWMItem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
@@ -38,13 +36,11 @@ public class UWMWand extends UWMItem {
 			tag.setString("mode", "");
 		}
 		String selectedString = tag.getString("selected");
-		String mode = tag.getString("mode").toString();
+		String mode = tag.getString("mode");
 		WandGadget selected = WandGadget.getByName(selectedString);
 		if(selected == null) {
-			Minecraft.getMinecraft().player.sendMessage(new TextComponentString("null"));
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 		}
-		Minecraft.getMinecraft().player.sendMessage(new TextComponentString(selected.toString()));
 		selected.exec(world, player, hand, mode);
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}

@@ -13,7 +13,7 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 	private static IForgeRegistry<WandGadget> REGISTRY;
 	
 	public WandGadget(String id) {
-		this.setRegistryName(id);
+		this.setRegistryName(new ResourceLocation(id));
 	}
 	
 	@Nullable
@@ -34,7 +34,6 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 
 			REGISTRY = registry;
 		}
-
 		return REGISTRY.getValue(id);
 	}
 	public void exec(World world, EntityPlayer player, EnumHand hand, String mode) {}
