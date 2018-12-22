@@ -20,13 +20,13 @@ public class UWMWand extends UWMItem {
 		ItemStack itemstack = player.getHeldItem(hand);
 		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
 		String defaultGadget;
-		if(!tag.hasKey("enabled", Constants.NBT.TAG_COMPOUND)) {
-			NBTTagCompound subTag = new NBTTagCompound();
-			subTag.setString("basic", "");
-			tag.setTag("enabled", subTag);
+		if(!tag.hasKey("list", Constants.NBT.TAG_COMPOUND)) {
+			NBTTagCompound enabled = new NBTTagCompound();
+			enabled.setString("basic", "");
+			tag.setTag("list", enabled);
 			defaultGadget = "basic";
 		} else {
-			String[] gadgetArray = (String[]) tag.getCompoundTag("enabled").getKeySet().toArray(new String[1]);
+			String[] gadgetArray = (String[]) tag.getCompoundTag("list").getKeySet().toArray(new String[1]);
 			defaultGadget = gadgetArray[0];
 		}
 		if(!tag.hasKey("selected", Constants.NBT.TAG_STRING)) {

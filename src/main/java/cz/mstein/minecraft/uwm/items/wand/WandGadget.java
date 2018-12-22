@@ -37,4 +37,6 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 		return REGISTRY.getValue(id);
 	}
 	public void exec(World world, EntityPlayer player, EnumHand hand, String mode) {}
+	
+	public static void getEnabledModes() {}
 }

@@ -1,6 +1,6 @@
 itemGroup.uwmtab=Upgradable Wands Mod
 
-key.wand_menu=Wand Menu
+key.wand_menu.name=Wand Menu
 
 item.testing_wand.name=Testing Wand
 item.wand.name=Upgradable Wand

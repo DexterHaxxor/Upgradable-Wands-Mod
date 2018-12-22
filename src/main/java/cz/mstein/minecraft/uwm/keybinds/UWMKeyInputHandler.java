@@ -11,7 +11,7 @@ public class UWMKeyInputHandler {
 	{
 		if (UWMKeybinds.wand_menu.isPressed())
 		{
-			Minecraft.getMinecraft().player.sendMessage(new TextComponentTranslation("key.wand_menu"));
+			Minecraft.getMinecraft().player.sendMessage(new TextComponentTranslation("key.wand_menu.name"));
 		}
 	}
 }
