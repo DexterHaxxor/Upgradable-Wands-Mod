@@ -8,13 +8,13 @@ I plan on upgrades, so that you can craft an item and add it to the wand, for ex
 
 See the [wiki](https://github.com/steinm07/Upgradable-Wands-Mod/wiki)
 
-##WANTED
+**WANTED**
 
  - [x] Create a working wand base
  - [ ] Perpium textures: item, dust, block, ore
  - [ ] Javium crafting recipe 
  
-##CREDITS
+**CREDITS**
  - Skip for the Wand Upgrade Table textures
 
-##Thank you suppergerrie2 and your discord server!
+**Thank you suppergerrie2 and your discord server!**
