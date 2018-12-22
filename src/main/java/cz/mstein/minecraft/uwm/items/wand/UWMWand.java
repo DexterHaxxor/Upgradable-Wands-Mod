@@ -4,9 +4,12 @@ import cz.mstein.minecraft.uwm.items.UWMItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
@@ -42,6 +45,24 @@ public class UWMWand extends UWMItem {
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 		}
 		selected.exec(world, player, hand, mode);
+		UWMWand.updateName(itemstack);
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+	}
+	public static void updateName(ItemStack itemstack) {
+		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
+		if(!tag.hasKey("selected")) {return;}
+		String selected = tag.getString("selected");
+		NBTTagCompound display = itemstack.getOrCreateSubCompound("display");
+		String name;
+		if(!tag.hasKey("customname", Constants.NBT.TAG_STRING)) {
+			name = new TextComponentTranslation("item.wand.name").getUnformattedText();
+		} else {
+			name = tag.getString("customname");
+		}
+		display.setString("Name", "§r" +  name + " | " + new TextComponentTranslation("gadget." + selected + ".name").getUnformattedText());
+		NBTTagList lore = new NBTTagList();
+		lore.appendTag(new NBTTagString("§r§4§l§o" + new TextComponentTranslation("wand.description").getUnformattedText()));
+		lore.appendTag(new NBTTagString("§r" + new TextComponentTranslation("gadget.description").getUnformattedText() + new TextComponentTranslation("gadget." + selected + ".description").getUnformattedText()));
+		display.setTag("Lore", lore);
 	}
 }

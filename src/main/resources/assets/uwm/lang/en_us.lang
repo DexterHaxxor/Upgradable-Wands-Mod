@@ -1,10 +1,15 @@
 itemGroup.uwmtab=Upgradable Wands Mod
 
-key.wand_menu.name=Wand Menu
+key.wand_menu=Wand Menu
 
 item.testing_wand.name=Testing Wand
 item.wand.name=Upgradable Wand
 tile.wand_upgrade_station.name=Wand Upgrade Station
+
+wand.description=This wand has been enchanted by the lord of wands! Beware of magical termites!
+gadget.description=Gadget description: 
+gadget.basic.name=Basic Gadget
+gadget.basic.description=Set of basic features that every wand has by default
 
 tile.javium_block.name=Javium Block
 item.javium_ingot.name=Javium Ingot
