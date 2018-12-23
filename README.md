@@ -1,20 +1,22 @@
 
 # Upgradable Wands Mod
-This mod's name was changed at day 2 of development from "Weird Materials Mod", but because i didn't like it nor was it descriptive of my plans. If you find any code referring to the mod as "wmm" or "Weird Materials Mod", please let me know.
+This mod is based around gadgets, that you put on your Upgradable Wand! There is only one currently, one that opens a broken crafting menu, but there will be more, working gadgets on the near future!
 
-**THIS MOD IS THE MOST WIP MOD EVER**
+## **GOOD NEWS**
 
-I plan on upgrades, so that you can craft an item and add it to the wand, for example RF storage or a crafting GUI.
+The base of the mode is **DONE!** Gadget loading and execution finished 22. December!
 
-See the [wiki](https://github.com/steinm07/Upgradable-Wands-Mod/wiki)
+See the [wiki](https://github.com/steinm07/Upgradable-Wands-Mod/wiki).
 
-**WANTED**
+## **WANTED**
 
- - [x] Create a working wand base
+ - [ ] Fix Wand Upgrade Table textures
+ - [ ] Gui for the Wand Upgrade Table
+ - [ ] Gui for the Wand Menu
  - [ ] Perpium textures: item, dust, block, ore
  - [ ] Javium crafting recipe 
  
-**CREDITS**
+## **CREDITS**
  - Skip for the Wand Upgrade Table textures
 
 **Thank you suppergerrie2 and your discord server!**
