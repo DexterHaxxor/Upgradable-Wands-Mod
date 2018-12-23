@@ -1,7 +1,7 @@
 package cz.mstein.minecraft.uwm.items.wand;
 
 import javax.annotation.Nullable;
-
+import cz.mstein.minecraft.uwm.init.UWMReference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -13,13 +13,13 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 	private static IForgeRegistry<WandGadget> REGISTRY;
 	
 	public WandGadget(String id) {
-		this.setRegistryName(new ResourceLocation(id));
+		this.setRegistryName(new ResourceLocation(UWMReference.MODID, id));
 	}
 	
 	@Nullable
 	public static WandGadget getByName(String id)
 	{
-		return getByName(new ResourceLocation(id));
+		return getByName(new ResourceLocation(UWMReference.MODID, id));
 	}
 
 	@Nullable
@@ -37,6 +37,5 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 		return REGISTRY.getValue(id);
 	}
 	public void exec(World world, EntityPlayer player, EnumHand hand, String mode) {}
-	
-	public static void getEnabledModes() {}
+	public String getNewMode(String mode, boolean isUp) {return "";}
 }

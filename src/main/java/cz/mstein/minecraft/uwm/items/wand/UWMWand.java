@@ -21,6 +21,32 @@ public class UWMWand extends UWMItem {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
+		NBTTagCompound tag = UWMWand.setupTags(itemstack);
+		String selectedString = tag.getString("selected");
+		String mode = tag.getString("mode");
+		WandGadget selected = WandGadget.getByName(selectedString);
+		if(selected == null) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);}
+		selected.exec(world, player, hand, mode);
+		UWMWand.updateName(itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+	}
+	public static void updateName(ItemStack itemstack) {
+		NBTTagCompound tag = UWMWand.setupTags(itemstack);
+		String selected = tag.getString("selected");
+		NBTTagCompound display = itemstack.getOrCreateSubCompound("display");
+		String name;
+		if(!tag.hasKey("customname", Constants.NBT.TAG_STRING)) {
+			name = new TextComponentTranslation("item.wand.name").getUnformattedText();
+		} else {
+			name = tag.getString("customname");
+		}
+		display.setString("Name", "Â§r" +  name + " ï½œ " + new TextComponentTranslation("gadget." + selected + ".name").getUnformattedText());
+		NBTTagList lore = new NBTTagList();
+		lore.appendTag(new NBTTagString("Â§rÂ§4Â§lÂ§o" + new TextComponentTranslation("wand.description").getUnformattedText()));
+		lore.appendTag(new NBTTagString("Â§r" + new TextComponentTranslation("gadget.description").getUnformattedText() + new TextComponentTranslation("gadget." + selected + ".description").getUnformattedText()));
+		display.setTag("Lore", lore);
+	}
+	public static NBTTagCompound setupTags(ItemStack itemstack) {
 		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
 		String defaultGadget;
 		if(!tag.hasKey("list", Constants.NBT.TAG_COMPOUND)) {
@@ -38,31 +64,14 @@ public class UWMWand extends UWMItem {
 		if (!tag.hasKey("mode", Constants.NBT.TAG_STRING)) {
 			tag.setString("mode", "");
 		}
-		String selectedString = tag.getString("selected");
-		String mode = tag.getString("mode");
-		WandGadget selected = WandGadget.getByName(selectedString);
-		if(selected == null) {
-			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
-		}
-		selected.exec(world, player, hand, mode);
-		UWMWand.updateName(itemstack);
-		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+		return tag;
 	}
-	public static void updateName(ItemStack itemstack) {
-		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
-		if(!tag.hasKey("selected")) {return;}
-		String selected = tag.getString("selected");
-		NBTTagCompound display = itemstack.getOrCreateSubCompound("display");
-		String name;
-		if(!tag.hasKey("customname", Constants.NBT.TAG_STRING)) {
-			name = new TextComponentTranslation("item.wand.name").getUnformattedText();
-		} else {
-			name = tag.getString("customname");
-		}
-		display.setString("Name", "§r" +  name + " | " + new TextComponentTranslation("gadget." + selected + ".name").getUnformattedText());
-		NBTTagList lore = new NBTTagList();
-		lore.appendTag(new NBTTagString("§r§4§l§o" + new TextComponentTranslation("wand.description").getUnformattedText()));
-		lore.appendTag(new NBTTagString("§r" + new TextComponentTranslation("gadget.description").getUnformattedText() + new TextComponentTranslation("gadget." + selected + ".description").getUnformattedText()));
-		display.setTag("Lore", lore);
+	public static void changeMode(ItemStack itemstack, boolean isUp) {
+		NBTTagCompound tag = UWMWand.setupTags(itemstack);
+		String currentMode = tag.getString("mode");
+		String selectedString = tag.getString("selected");
+		WandGadget selected = WandGadget.getByName(selectedString);
+		String newMode = selected.getNewMode(currentMode, isUp);
+		tag.setString("mode", newMode);
 	}
 }
