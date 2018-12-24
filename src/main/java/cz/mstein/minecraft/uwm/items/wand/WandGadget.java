@@ -38,4 +38,5 @@ public class WandGadget extends net.minecraftforge.registries.IForgeRegistryEntr
 	}
 	public void exec(World world, EntityPlayer player, EnumHand hand, String mode) {}
 	public String getNewMode(String mode, boolean isUp) {return "";}
+	public boolean isBlockDestroyed(String mode) {return true;}
 }

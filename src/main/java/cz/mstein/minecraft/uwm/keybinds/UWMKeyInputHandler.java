@@ -10,7 +10,7 @@ public class UWMKeyInputHandler {
 	{
 		if (UWMKeybinds.wand_menu.isPressed())
 		{
-			Minecraft.getMinecraft().ingameGUI.setOverlayMessage("They did surgery on a grape", false);
+			Minecraft.getMinecraft().ingameGUI.setOverlayMessage("They did surgery on a grape.", false);
 		}
 	}
 }

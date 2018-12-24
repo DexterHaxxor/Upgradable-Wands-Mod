@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
@@ -29,6 +30,11 @@ public class UWMWand extends UWMItem {
 		selected.exec(world, player, hand, mode);
 		UWMWand.updateName(itemstack);
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+	}
+	@Override
+	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos blockpos, EntityPlayer player) {
+		
+		return true;
 	}
 	public static void updateName(ItemStack itemstack) {
 		NBTTagCompound tag = UWMWand.setupTags(itemstack);
