@@ -33,7 +33,8 @@ public class UWMWand extends UWMItem {
 	}
 	@Override
 	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos blockpos, EntityPlayer player) {
-		
+		NBTTagCompound tag = UWMWand.setupTags(itemstack);
+		String selectedString = tag.getString("selected");
 		return true;
 	}
 	public static void updateName(ItemStack itemstack) {
