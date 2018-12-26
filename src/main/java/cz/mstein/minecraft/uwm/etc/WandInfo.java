@@ -1,6 +1,6 @@
 package cz.mstein.minecraft.uwm.etc;
 
-import cz.mstein.minecraft.uwm.items.wand.UWMWand;
+import cz.mstein.minecraft.uwm.items.wand.ItemWand;
 import cz.mstein.minecraft.uwm.items.wand.WandGadget;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,14 +20,14 @@ public class WandInfo {
 	
 	public WandInfo(ItemStack itemStackParam) {
 		this.itemStack = itemStackParam;
-		this.upgrades = UWMWand.setupTags(itemStack);
+		this.upgrades = ItemWand.setupTags(itemStack);
 		this.display = itemStack.getOrCreateSubCompound("display");
 		this.selectedString = this.upgrades.getString("selected");
 		this.mode = this.upgrades.getString("mode");
 		this.selected = WandGadget.getByName(this.selectedString);
 		this.list = this.upgrades.getCompoundTag("list");
 		this.lore = this.display.getTagList("Lore", Constants.NBT.TAG_STRING);
-		this.customName = this.display.getString("Name");
+		this.customName = this.upgrades.getString("customname");
 	}
 
 	public String getSelectedString() {
@@ -43,7 +43,7 @@ public class WandInfo {
 	}
 
 	public void setCustomName(String customName) {
-		this.display.setString("Name", customName);
+		this.upgrades.setString("customname", customName);
 		this.customName = customName;
 	}
 

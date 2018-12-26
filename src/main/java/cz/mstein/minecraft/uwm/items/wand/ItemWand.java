@@ -1,5 +1,6 @@
 package cz.mstein.minecraft.uwm.items.wand;
 
+import cz.mstein.minecraft.uwm.etc.WandInfo;
 import cz.mstein.minecraft.uwm.items.UWMItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,44 +15,32 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
-public class UWMWand extends UWMItem {
-	public UWMWand() {
+public class ItemWand extends UWMItem {
+	public ItemWand() {
 		super("wand");
 		this.setMaxStackSize(1);
 	}
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
-		NBTTagCompound tag = UWMWand.setupTags(itemstack);
-		String selectedString = tag.getString("selected");
-		String mode = tag.getString("mode");
-		WandGadget selected = WandGadget.getByName(selectedString);
-		if(selected == null) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);}
-		selected.exec(world, player, hand, mode);
-		UWMWand.updateName(itemstack);
+		WandInfo wandInfo = new WandInfo(itemstack);
+		if(wandInfo.getSelected() == null) {return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);}
+		wandInfo.getSelected().exec(world, player, hand, wandInfo.getMode());
+		ItemWand.updateName(itemstack);
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 	@Override
 	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos blockpos, EntityPlayer player) {
-		NBTTagCompound tag = UWMWand.setupTags(itemstack);
-		String selectedString = tag.getString("selected");
-		return true;
+		WandInfo wandInfo = new WandInfo(itemstack);
+		return wandInfo.getSelected().isBlockDestroyed(wandInfo.getMode());
 	}
 	public static void updateName(ItemStack itemstack) {
-		NBTTagCompound tag = UWMWand.setupTags(itemstack);
-		String selected = tag.getString("selected");
-		NBTTagCompound display = itemstack.getOrCreateSubCompound("display");
-		String name;
-		if(!tag.hasKey("customname", Constants.NBT.TAG_STRING)) {
-			name = new TextComponentTranslation("item.wand.name").getUnformattedText();
-		} else {
-			name = tag.getString("customname");
-		}
-		display.setString("Name", "§r" +  name + " ｜ " + new TextComponentTranslation("gadget." + selected + ".name").getUnformattedText());
+		WandInfo wandInfo = new WandInfo(itemstack);
+		wandInfo.getDisplay().setString("Name", "§r" +  wandInfo.getCustomName() + " ｜ " + new TextComponentTranslation("gadget." + wandInfo.getSelectedString() + ".name").getUnformattedText());
 		NBTTagList lore = new NBTTagList();
 		lore.appendTag(new NBTTagString("§r§4§l§o" + new TextComponentTranslation("wand.description").getUnformattedText()));
-		lore.appendTag(new NBTTagString("§r" + new TextComponentTranslation("gadget.description").getUnformattedText() + new TextComponentTranslation("gadget." + selected + ".description").getUnformattedText()));
-		display.setTag("Lore", lore);
+		lore.appendTag(new NBTTagString("§r" + new TextComponentTranslation("gadget.description").getUnformattedText() + new TextComponentTranslation("gadget." + wandInfo.getSelectedString() + ".description").getUnformattedText()));
+		wandInfo.setLore(lore);
 	}
 	public static NBTTagCompound setupTags(ItemStack itemstack) {
 		NBTTagCompound tag = itemstack.getOrCreateSubCompound("upgrades");
@@ -71,14 +60,13 @@ public class UWMWand extends UWMItem {
 		if (!tag.hasKey("mode", Constants.NBT.TAG_STRING)) {
 			tag.setString("mode", "");
 		}
+		if(!tag.hasKey("customname", Constants.NBT.TAG_STRING)) {
+			tag.setString("customname", new TextComponentTranslation("item.wand.name").getUnformattedText());
+		}
 		return tag;
 	}
 	public static void changeMode(ItemStack itemstack, boolean isUp) {
-		NBTTagCompound tag = UWMWand.setupTags(itemstack);
-		String currentMode = tag.getString("mode");
-		String selectedString = tag.getString("selected");
-		WandGadget selected = WandGadget.getByName(selectedString);
-		String newMode = selected.getNewMode(currentMode, isUp);
-		tag.setString("mode", newMode);
+		WandInfo wandInfo = new WandInfo(itemstack);
+		wandInfo.setCustomName(wandInfo.getSelected().getNewMode(wandInfo.getMode(), isUp));
 	}
 }

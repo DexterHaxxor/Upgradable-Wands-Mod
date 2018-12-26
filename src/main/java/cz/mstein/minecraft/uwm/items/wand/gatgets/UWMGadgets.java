@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid=UWMReference.MODID)
 public class UWMGadgets {
-	static WandGadget basic = new BasicGadget();
+	static WandGadget basic = new GadgetBasic();
 	@SubscribeEvent
 	public static void registerUpgrades(RegistryEvent.Register<WandGadget> event) {
 		event.getRegistry().registerAll(basic);

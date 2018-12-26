@@ -10,8 +10,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class TestingWand extends UWMItem {
-	public TestingWand() {
+public class ItemTestingWand extends UWMItem {
+	public ItemTestingWand() {
 		super("testing_wand");
 		this.maxStackSize = 1;
 		this.setMaxDamage(500);

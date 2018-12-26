@@ -1,9 +1,9 @@
 package cz.mstein.minecraft.uwm.blocks;
 
 import cz.mstein.minecraft.uwm.init.UWMReference;
-import cz.mstein.minecraft.uwm.materials.javium.JaviumBlock;
-import cz.mstein.minecraft.uwm.materials.perpium.PerpiumBlock;
-import cz.mstein.minecraft.uwm.materials.perpium.PerpiumOre;
+import cz.mstein.minecraft.uwm.materials.javium.TileJaviumBlock;
+import cz.mstein.minecraft.uwm.materials.perpium.TilePerpiumBlock;
+import cz.mstein.minecraft.uwm.materials.perpium.TilePerpiumOre;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -23,10 +23,10 @@ public class UWMBlocks {
 	public static Block wand_upgrade_station;
 	
 	public static void init() {
-		javium_block = new JaviumBlock();
-		perpium_block = new PerpiumBlock();
-		perpium_ore = new PerpiumOre();
-		wand_upgrade_station = new WandUpgradeStation();
+		javium_block = new TileJaviumBlock();
+		perpium_block = new TilePerpiumBlock();
+		perpium_ore = new TilePerpiumOre();
+		wand_upgrade_station = new TileWandUpgradeStation();
 	}
 	
 	@SubscribeEvent

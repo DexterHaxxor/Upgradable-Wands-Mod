@@ -1,11 +1,11 @@
 package cz.mstein.minecraft.uwm.items;
 
 import cz.mstein.minecraft.uwm.init.UWMReference;
-import cz.mstein.minecraft.uwm.items.wand.UWMWand;
-import cz.mstein.minecraft.uwm.materials.javium.JaviumDust;
-import cz.mstein.minecraft.uwm.materials.javium.JaviumIngot;
-import cz.mstein.minecraft.uwm.materials.perpium.PerpiumDust;
-import cz.mstein.minecraft.uwm.materials.perpium.PerpiumIngot;
+import cz.mstein.minecraft.uwm.items.wand.ItemWand;
+import cz.mstein.minecraft.uwm.materials.javium.ItemJaviumDust;
+import cz.mstein.minecraft.uwm.materials.javium.ItemJaviumIngot;
+import cz.mstein.minecraft.uwm.materials.perpium.ItemPerpiumDust;
+import cz.mstein.minecraft.uwm.materials.perpium.ItemPerpiumIngot;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -21,12 +21,12 @@ public class UWMItems {
 	public static Item javium_ingot, javium_dust, perpium_ingot, perpium_dust, testing_wand, wand;
 	// END OF ITEMS HERE //
 	public static void init() {
-		javium_ingot = new JaviumIngot();
-		javium_dust = new JaviumDust();
-		perpium_ingot = new PerpiumIngot();
-		perpium_dust = new PerpiumDust();
-		testing_wand = new TestingWand();
-		wand = new UWMWand();
+		javium_ingot = new ItemJaviumIngot();
+		javium_dust = new ItemJaviumDust();
+		perpium_ingot = new ItemPerpiumIngot();
+		perpium_dust = new ItemPerpiumDust();
+		testing_wand = new ItemTestingWand();
+		wand = new ItemWand();
 	}
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
