@@ -7,8 +7,8 @@ import net.minecraft.block.material.Material;
 public class UWMBlock extends Block {
 	public UWMBlock(String name, Material material) {
 		super(material);
-		setUnlocalizedName(name);
-		setRegistryName(name);
+		this.setTranslationKey(name);
+		this.setRegistryName(name);
 		this.setCreativeTab(UWMTab.tab);
 		this.setHardness(3.0F);
 	}

@@ -1,5 +1,6 @@
 package cz.mstein.minecraft.uwm.keybinds;
 
+import cz.mstein.minecraft.uwm.gui.WandMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
@@ -10,7 +11,7 @@ public class UWMKeyInputHandler {
 	{
 		if (UWMKeybinds.wand_menu.isPressed())
 		{
-			Minecraft.getMinecraft().ingameGUI.setOverlayMessage("They did surgery on a grape.", false);
+			WandMenu.displayNew();
 		}
 	}
 }

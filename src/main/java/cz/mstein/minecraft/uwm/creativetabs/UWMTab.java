@@ -8,7 +8,7 @@ public class UWMTab {
 	public static final CreativeTabs tab = (new CreativeTabs("uwmtab") {
 
 		@Override
-		public ItemStack getTabIconItem() {
+		public ItemStack createIcon() {
 			return new ItemStack(UWMItems.javium_dust);
 		}
 		@Override
