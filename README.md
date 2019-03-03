@@ -8,14 +8,10 @@ The base of the mode is **DONE!** Gadget loading and execution finished 22. Dece
 
 See the [wiki](https://github.com/steinm07/Upgradable-Wands-Mod/wiki).
 
-## **WANTED**
+## **TODO**
 
- - [ ] Fix Wand Upgrade Table textures
- - [ ] Gui for the Wand Upgrade Table
- - [ ] Gui for the Wand Menu
- - [ ] Perpium textures: item, dust, block, ore
- - [ ] Javium crafting recipe 
- 
+Check the TODO.md file!
+
 ## **CREDITS**
  - Skip for the Wand Upgrade Table textures
 
